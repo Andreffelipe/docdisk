@@ -1,11 +1,11 @@
-'''sh
+```sh
   ____               _____ _               ____ _     ___
  |  _ \  ___   ___  |  ___| |_   ___  __  / ___| |   |_ _|
  | | | |/ _ \ / __| | |_  | | | | \ \/ / | |   | |    | |
  | |_| | (_) | (__  |  _| | | |_| |>  <  | |___| |___ | |
  |____/ \___/ \___| |_|   |_|\__,_/_/\_\  \____|_____|___|
 
-'''
+```
 ### Resumo
 
 Docflux e uma aplicação de linha de comando que reuni uma pequena
@@ -30,7 +30,7 @@ Options:
   -t, --topic <topic>        returns a specific topic
   -h, --help                 display help for command
 
-# Contribuição
+### Contribuição
 
 Qualquer contribuição e sempre bem vinda, acrescente qualquer
 linguagem que domine isso pode ajudar alguém.

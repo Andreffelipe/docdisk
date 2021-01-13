@@ -1,6 +1,7 @@
 import inquirer from 'inquirer';
 import menuGo from './go/menu';
 import menuJavascript from './javascript/menu';
+import menuGit from './git/menu';
 
 interface Data {
   language: string;
@@ -27,6 +28,9 @@ const getTopic = async (language: string): Promise<Data | undefined> => {
       break;
     case 'javascript':
       msg = await Msg(menuJavascript);
+      break;
+    case 'git':
+      msg = await Msg(menuGit);
       break;
     default:
       break;

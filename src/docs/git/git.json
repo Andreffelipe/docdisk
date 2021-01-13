@@ -1,0 +1,40 @@
+{
+  "criar": {
+    "title": "Criar",
+    "content": [
+      "",
+      "Clonar um repositório existente",
+      "$git clone https://github.com/usuario/repo.git \n",
+      "Criar um novo repositório local",
+      "$git init"
+    ]
+  },
+  "modificacao": {
+    "title": " Modificações Locais",
+    "content": [
+      "",
+      "Arquivos modificados no diretório ativo",
+      "$git status",
+      "",
+      "Modificações em arquivos versionados",
+      "git diff",
+      "",
+      "Adiciona todas as alterações atuais ao próximo commit",
+      "ponto final indica pasta em que o terminal esta",
+      "$git add .",
+      "",
+      "Adiciona as mudanças do <file> no próximo commit",
+      "$git add -p <file>",
+      "",
+      "Commita todas as modificações de arquivos versionados",
+      "$git commit -a",
+      "",
+      "Commita modificação preparadas",
+      "$git commit",
+      "",
+      "Modifica o último commit",
+      "Não modifica commit publicados",
+      "$git commit --amend"
+    ]
+  }
+}

@@ -19,6 +19,10 @@ A documentação será disponibilizada em pt_br e em en-us.
 * `golang`
 * `javascript`
 
+### Ferramentas
+
+* `git`
+
 ### Usage
 
 Usage: docflux doc [options] [tool]

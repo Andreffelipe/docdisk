@@ -22,7 +22,7 @@
     "lint": "eslint ."
   },
   "bin": {
-    "docflux": "dist/index.js"
+    "docflux": "dist/docflux.js"
   },
   "dependencies": {
     "chalk": "^4.1.0",

@@ -1,0 +1,10 @@
+.git
+src
+test
+.editorconfig
+.eslintignore
+.eslintrc.json
+jest.config.js
+prettier.config.js
+tsconfig.json
+yarn-error.log

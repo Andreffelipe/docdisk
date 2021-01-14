@@ -47,7 +47,7 @@ var documentation_1 = __importDefault(require("./documentation"));
 var topic_1 = __importDefault(require("./topic/topic"));
 var version = '1.0.0';
 commander_1.default.version(version);
-console.log(chalk_1.default.cyan(figlet_1.default.textSync('Doc Flux CLI')));
+console.log(chalk_1.default.cyan(figlet_1.default.textSync('Doc Disk CLI')));
 commander_1.default
     .command('doc [tool]')
     .option('-l, --language [language]', 'documentation language')

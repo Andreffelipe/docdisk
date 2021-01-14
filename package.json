@@ -1,8 +1,8 @@
 {
-  "name": "docflux",
+  "name": "docdisk",
   "version": "1.0.0",
   "author": "Andre Felipe",
-  "main": "dist/docflux.js",
+  "main": "dist/index.js",
   "description": "pacote para consulta de documentação",
   "license": "MIT",
   "keywords": [
@@ -17,12 +17,12 @@
   },
   "scripts": {
     "build": "rm -r dist && tsc",
-    "docflux": "npx ts-node src/docflux.ts",
+    "docdisk": "npx ts-node src/index.ts",
     "test": "jest",
     "lint": "eslint ."
   },
   "bin": {
-    "docflux": "dist/docflux.js"
+    "docdisk": "dist/index.js"
   },
   "dependencies": {
     "chalk": "^4.1.0",
@@ -55,10 +55,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Andreffelipe/docflux-cli.git"
+    "url": "git+https://github.com/Andreffelipe/docdisk.git"
   },
   "bugs": {
-    "url": "https://github.com/Andreffelipe/docflux-cli/issues"
+    "url": "https://github.com/Andreffelipe/docdisk/issues"
   },
-  "homepage": "https://github.com/Andreffelipe/docflux-cli#readme"
+  "homepage": "https://github.com/Andreffelipe/docdisk#readme"
 }

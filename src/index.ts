@@ -10,7 +10,7 @@ const version = '1.0.0';
 
 program.version(version);
 
-console.log(chalk.cyan(figlet.textSync('Doc Flux CLI')));
+console.log(chalk.cyan(figlet.textSync('Doc Disk CLI')));
 
 program
   .command('doc [tool]')

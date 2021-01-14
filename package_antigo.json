@@ -2,24 +2,16 @@
   "name": "docflux",
   "version": "1.0.0",
   "author": "Andre Felipe",
-  "main": "dist/docflux.js",
-  "description": "pacote para consulta de documentação",
+  "main": "index.js",
   "license": "MIT",
-  "keywords": [
-    "command",
-    "prompt",
-    "stdin",
-    "cli",
-    "documentation"
-  ],
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "scripts": {
+    "yarn-link": "yarn link",
+    "yarn-unlink": "yarn unlink",
     "build": "rm -r dist && tsc",
     "docflux": "npx ts-node src/docflux.ts",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test-local": "yarn add --global file:./docflux-v1.0.0.tgz"
   },
   "bin": {
     "docflux": "dist/index.js"
@@ -52,13 +44,5 @@
     "ts-jest": "^26.4.4",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Andreffelipe/docflux-cli.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Andreffelipe/docflux-cli/issues"
-  },
-  "homepage": "https://github.com/Andreffelipe/docflux-cli#readme"
+  }
 }

@@ -19,10 +19,6 @@ A documentação será disponibilizada em pt_br e em en-us.
 * `golang`
 * `javascript`
 
-### Ferramentas
-
-* `git`
-
 ### Usage
 
 Usage: docflux doc [options] [tool]
@@ -30,9 +26,9 @@ Usage: docflux doc [options] [tool]
 shows the documentation of topic of the chosen language
 
 Options:
-  -l, --language [language]  documentation language
-  -t, --topic <topic>        returns a specific topic
-  -h, --help                 display help for command
+  - -l, --language [language]  documentation language
+  - -t, --topic <topic>        returns a specific topic
+  - -h, --help                 display help for command
 
 ### Contribuição
 

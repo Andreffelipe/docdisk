@@ -5,7 +5,7 @@
     "lib": [
       "es2015"
     ],
-    "outDir": "./build",
+    "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,

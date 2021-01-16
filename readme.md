@@ -19,6 +19,19 @@ A documentação será disponibilizada em pt_br e em en-us.
 * `golang`
 * `javascript`
 
+### Instalação
+
+Ao instalar use a Instalação global e tenha acesso global ao pacote
+
+usando npm
+```sh
+$ npm install -g docdisk
+```
+usando yarn
+```sh
+$ yarn global add docdisk
+```
+
 ### Usage
 
 O comando `npx docdisk doc -t basic javascript` retorna a documentação do tópico básico do javascript

@@ -1,33 +1,28 @@
 import chalk from 'chalk';
 import go from './docs/golang/Go.json';
-import javascript from './docs/javascript/Javascript.json';
+import javascript from './docs/javascript/index';
 import git from './docs/git/git.json';
+
+interface Data {
+  [string: string]: {
+    title: string;
+    content: string;
+  };
+}
+
+const formatConsole = (array: Data, topic: string) => {
+  Object.entries(array).forEach(([key, value]) => {
+    if (key === topic.toLowerCase()) {
+      console.log(value.title);
+      console.log(value.content);
+    }
+  });
+};
 
 const getDocuments = (language: string, topic: string): void => {
   switch (language) {
-    case 'go':
-      Object.entries(go).forEach(([key, value]) => {
-        if (key === topic.toLowerCase()) {
-          console.log(chalk.bold.magenta(value.title));
-          value.content.forEach(element => console.log(element));
-        }
-      });
-      break;
     case 'javascript':
-      Object.entries(javascript).forEach(([key, value]) => {
-        if (key === topic.toLowerCase()) {
-          console.log(chalk.bold.magenta(value.title));
-          value.content.forEach(element => console.log(element));
-        }
-      });
-      break;
-    case 'git':
-      Object.entries(git).forEach(([key, value]) => {
-        if (key === topic.toLowerCase()) {
-          console.log(chalk.bold.magenta(value.title));
-          value.content.forEach(element => console.log(element));
-        }
-      });
+      formatConsole(javascript, topic);
       break;
     default:
       break;

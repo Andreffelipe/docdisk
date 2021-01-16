@@ -204,337 +204,318 @@ const documentationGo = {
         }
       `,
   },
-  // "built-in types": {
-  //   "title": "Built-in Types",
-  //     "content": [
-  //       "    ```",
-  //       "bool",
-  //       "",
-  //       "string",
-  //       "",
-  //       "int  int8  int16  int32  int64",
-  //       "uint uint8 uint16 uint32 uint64 uintptr",
-  //       "",
-  //       "byte // alias for uint8",
-  //       "",
-  //       "rune // alias for int32 ~= a character (Unicode code point) - very Viking",
-  //       "",
-  //       "float32 float64",
-  //       "",
-  //       "complex64 complex128",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "type conversions": {
-  //   "title": "Type Conversions",
-  //     "content": [
-  //       "    ```go",
-  //       "    var i int = 42",
-  //       "    var f float64 = float64(i)",
-  //       "    var u uint = uint(f)",
-  //       "    ",
-  //       "    // alternative syntax",
-  //       "    i := 42",
-  //       "    f := float64(i)",
-  //       "    u := uint(f)",
-  //       "    ```",
-  //       ""
-  //     ]
-  // },
-  // "packages": {
-  //   "title": "Packages",
-  //     "content": [
-  //       "* Package declaration at top of every source file",
-  //       "* Executables are in package `main`",
-  //       "* Convention: package name == last name of import path (import path `math/rand` => package `rand`)",
-  //       "* Upper case identifier: exported (visible from other packages)",
-  //       "* Lower case identifier: private (not visible from other packages)",
-  //       ""
-  //     ]
-  // },
-  // "control structures": {
-  //   "title": "Control structures",
-  //     "content": [
-  //       "If",
-  //       "```go",
-  //       "func main() {",
-  //       "    // Basic one",
-  //       "  if x > 10 {",
-  //       "    return x",
-  //       "    } else if x == 10 {",
-  //       "    return 10",
-  //       "    } else {",
-  //       "    return -x",
-  //       "    }",
-  //       "    // You can put one statement before the condition",
-  //       "  if a := b + c; a < 42 {",
-  //       "    return a",
-  //       "    } else {",
-  //       "    return a - 42",
-  //       "    }",
-  //       "    // Type assertion inside if",
-  //       "  var val interface{}",
-  //       "  val = \"foo\"",
-  //       "  if str, ok := val.(string); ok {",
-  //       "    fmt.Println(str)",
-  //       "    }",
-  //       "  }",
-  //       "```",
-  //       "",
-  //       "Loops",
-  //       "```go",
-  //       "    // There's only `for`, no `while`, no `until`",
-  //       "    for i := 1; i < 10; i++ {}",
-  //       "    for ; i < 10;  { // while - loop",
-  //       "  }",
-  //       "    for i < 10  { // you can omit semicolons if there is only a condition",
-  //       "  }",
-  //       "    for { // you can omit the condition ~ while (true)",
-  //       "  }",
-  //       "  // use break/continue on current loop",
-  //       "  // use break/continue with label on outer loop",
-  //       "here:",
-  //       "    for i := 0; i < 2; i++ {",
-  //       "        for j := i + 1; j < 3; j++ {",
-  //       "            if i == 0 {",
-  //       "                continue here",
-  //       "      }",
-  //       "            fmt.Println(j)",
-  //       "            if j == 2 {",
-  //       "                break",
-  //       "      }",
-  //       "    }",
-  //       "  }",
-  //       "",
-  //       "there:",
-  //       "    for i := 0; i < 2; i++ {",
-  //       "        for j := i + 1; j < 3; j++ {",
-  //       "            if j == 1 {",
-  //       "                continue",
-  //       "      }",
-  //       "            fmt.Println(j)",
-  //       "            if j == 2 {",
-  //       "                break there",
-  //       "      }",
-  //       "    }",
-  //       "  }",
-  //       "```",
-  //       "",
-  //       "### Switch",
-  //       "```go",
-  //       "    // switch statement",
-  //       "    switch operatingSystem {",
-  //       "    case \"darwin\":",
-  //       "        fmt.Println(\"Mac OS Hipster\")",
-  //       "        // cases break automatically, no fallthrough by default",
-  //       "    case \"linux\":",
-  //       "        fmt.Println(\"Linux Geek\")",
-  //       "    default:",
-  //       "    // Windows, BSD, ...",
-  //       "        fmt.Println(\"Other\")",
-  //       "  }",
-  //       "  // as with for and if, you can have an assignment statement before the switch value",
-  //       "    switch os := runtime.GOOS; os {",
-  //       "    case \"darwin\": ...",
-  //       "  }",
-  //       "  // you can also make comparisons in switch cases",
-  //       "    number := 42",
-  //       "    switch {",
-  //       "        case number < 42:",
-  //       "            fmt.Println(\"Smaller\")",
-  //       "        case number == 42:",
-  //       "            fmt.Println(\"Equal\")",
-  //       "        case number > 42:",
-  //       "            fmt.Println(\"Greater\")",
-  //       "  }",
-  //       "  // cases can be presented in comma-separated lists",
-  //       "    var char byte = '?'",
-  //       "    switch char {",
-  //       "        case ' ', '?', '&', '=', '#', '+', '%':",
-  //       "            fmt.Println(\"Should escape\")",
-  //       "  }",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "arrays slices ranges": {
-  //   "title": "Arrays, Slices, Ranges",
-  //     "content": [
-  //       "Arrays",
-  //       "```go",
-  //       "var a [10]int // declare an int array with length 10. Array length is part of the type!",
-  //       "a[3] = 42 // set elements",
-  //       "i := a[3] // read elements",
-  //       "  // declare and initialize",
-  //       "var a = [2]int{1,2}",
-  //       "a := [2]int{1,2} //shorthand",
-  //       "a := [...]int{1,2} // elipsis -> Compiler figures out array length",
-  //       "```",
-  //       "",
-  //       "Slices",
-  //       "```go",
-  //       "var a []int // declare a slice - similar to an array, but length is unspecified",
-  //       "var a = []int {1,2,3,4} // declare and initialize a slice (backed by the array given implicitly)",
-  //       "a := []int{1,2,3,4} // shorthand",
-  //       "chars := []string{0: \"a\",2: \"c\",1: \"b\"} // [\"a\", \"b\", \"c\"]",
-  //       "",
-  //       "var b = a[lo:hi] // creates a slice (view of the array) from index lo to hi-1",
-  //       "var b = a[1: 4] // slice from index 1 to 3",
-  //       "var b = a[: 3] // missing low index implies 0",
-  //       "var b = a[3:] // missing high index implies len(a)",
-  //       "a =  append(a,17,3) // append items to slice a",
-  //       "c := append(a,b...) // concatenate slices a and b",
-  //       "",
-  //       "// create a slice with make",
-  //       "a = make([]byte,5,5) // first arg length, second capacity",
-  //       "a = make([]byte,5) // capacity is optional",
-  //       "",
-  //       "// create a slice from an array",
-  //       "x := [3]string{\"Лайка\",\"Белка\",\"Стрелка\"}",
-  //       "s := x[:] // a slice referencing the storage of x",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "operations on Arrays and Slices": {
-  //   "title": "Operations on Arrays and Slices",
-  //     "content": [
-  //       "`len(a)` gives you the length of an array/a slice. It's a built-in function, not a attribute/method on the array.",
-  //       "```go",
-  //       "// loop over an array/a slice",
-  //       "for i, e := range a {",
-  //       "    // i is the index, e the element",
-  //       "  }",
-  //       "  // if you only need e:",
-  //       "for _, e := range a {",
-  //       "    // e is the element",
-  //       "  }",
-  //       "  // ...and if you only need the index",
-  //       "for i := range a {}",
-  //       "  // In Go pre-1.4, you'll get a compiler error if you're not using i and e.",
-  //       "  // Go 1.4 introduced a variable-free form, so that you can do this",
-  //       "for range time.Tick(time.Second) {",
-  //       "    // do it once a sec",
-  //       "  }",
-  //       "",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "Maps": {
-  //   "title": "Maps",
-  //     "content": [
-  //       "```go",
-  //       "var m map[string]int",
-  //       "m = make(map[string]int)",
-  //       "m[\"key\"] = 42",
-  //       "fmt.Println(m[\"key\"])",
-  //       "",
-  //       "delete(m,\"key\")",
-  //       "",
-  //       "elem, ok := m[\"key\"] // test if key \"key\" is present and retrieve it, if so",
-  //       "  // map literal",
-  //       "var m = map[string",
-  //       "  ]Vertex{",
-  //       "    \"Bell Labs\": {40.68433,-74.39967},",
-  //       "    \"Google\": {37.42202,-122.08408},",
-  //       "  }",
-  //       "  // iterate over map content",
-  //       "for key, value := range m {}",
-  //       "",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "structs": {
-  //   "title": "Structs",
-  //     "content": [
-  //       "",
-  //       "There are no classes, only structs. Structs can have methods.",
-  //       "```go",
-  //       "// A struct is a type. It's also a collection of fields",
-  //       "",
-  //       "// Declaration",
-  //       "type Vertex struct {X, Y int}  ",
-  //       "",
-  //       "// Creating",
-  //       "var v = Vertex{1,2}",
-  //       "var v = Vertex{X: 1, Y: 2} // Creates a struct by defining values with keys",
-  //       "var v = []Vertex{{1,2},{5,2},{5,5}} // Initialize a slice of structs",
-  //       "",
-  //       "// Accessing members",
-  //       "v.X = 4",
-  //       "",
-  //       "// You can declare methods on structs. The struct you want to declare the",
-  //       "// method on (the receiving type) comes between the the func keyword and",
-  //       "// the method name. The struct is copied on each method call(!)",
-  //       "func (v Vertex) Abs() float64 {",
-  //       "    return math.Sqrt(v.X*v.X + v.Y*v.Y)",
-  //       "  }",
-  //       "",
-  //       "// Call method",
-  //       "v.Abs()",
-  //       "",
-  //       "// For mutating methods, you need to use a pointer (see below) to the Struct",
-  //       "  // as the type. With this, the struct value is not copied for the method call.",
-  //       "func (v *Vertex) add(n float64) {",
-  //       "    v.X += n",
-  //       "    v.Y += n",
-  //       "  }",
-  //       "",
-  //       "```",
-  //       "**Anonymous structs:**",
-  //       "Cheaper and safer than using `map[string]interface{}`.",
-  //       "```go",
-  //       "",
-  //       "point := struct {",
-  //       "  X, Y int",
-  //       "  }{1,2}",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "pointers": {
-  //   "title": "Pointers",
-  //     "content": [
-  //       "",
-  //       "    ```go",
-  //       "p := Vertex{",
-  //       "    1,",
-  //       "    2",
-  //       "  } // p is a Vertex",
-  //       "q := &p // q is a pointer to a Vertex",
-  //       "r := &Vertex{",
-  //       "    1,",
-  //       "    2",
-  //       "  } // r is also a pointer to a Vertex",
-  //       "  // The type of a pointer to a Vertex is *Vertex",
-  //       "",
-  //       "var s *Vertex = new(Vertex) // new creates a pointer to a new struct instance",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "interfaces": {
-  //   "title": "Interfaces",
-  //     "content": [
-  //       "",
-  //       "```go",
-  //       "// interface declaration",
-  //       "type Awesomizer interface {",
-  //       "    Awesomize() string",
-  //       "  }",
-  //       "  // types do *not* declare to implement interfaces",
-  //       "type Foo struct {}",
-  //       "  // instead, types implicitly satisfy an interface if they implement all required methods",
-  //       "func (foo Foo) Awesomize() string {",
-  //       "    return \"Awesome!\"",
-  //       "  }",
-  //       "```",
-  //       ""
-  //     ]
-  // },
+  types: {
+    title: 'Types',
+    content: `
+    bool
+
+    string
+
+    int  int8  int16  int32  int64
+    uint uint8 uint16 uint32 uint64 uintptr
+
+    byte // alias for uint8
+
+    rune // alias for int32 ~= a character (Unicode code point) - very Viking
+
+    float32 float64
+
+    complex64 complex128`,
+  },
+  conversao: {
+    title: 'Conversão de tipo',
+    content: `
+      var i int = 42
+      var f float64 = float64(i)
+      var u uint = uint(f)
+      // alternative syntax
+      i := 42
+      f := float64(i)
+      u := uint(f)
+      `,
+  },
+  packages: {
+    title: 'Packages',
+    content: `
+      Package declaration at top of every source file
+      Executables are in package 'main'
+      Convention: package name == last name of import path (import path 'math/ rand' => package 'rand')
+      Upper case identifier: exported (visible from other packages)
+      Lower case identifier: private (not visible from other packages)
+
+      `,
+  },
+  'estrutura controle': {
+    title: 'Control structures',
+    content: `
+=> If
+
+    func main () {
+        // Basic one
+        if x > 10 {
+          return x
+        } else if x == 10 {
+          return 10
+        } else {
+          return -x
+        }
+
+        // Você pode colocar uma declaração antes da condição
+        if a := b + c; a < 42 {
+          return a
+        } else {
+          return a - 42
+        }
+
+        // Digite assertion dentro if
+        var val interface{ }
+        val = "foo"
+        if str, ok := val.(string); ok {
+          fmt.Println(str)
+        }
+      }
+
+=> Loops
+
+  // Existe apenas 'for', nenhum 'while', nenhum 'until'
+  for i := 1; i< 10; i++ { }
+
+  for ; i < 10; {
+    // while - loop
+  }
+
+  for i < 10  {
+    // você pode omitir ponto-e-vírgula se houver apenas uma condição
+  }
+
+  for {
+    // você pode omitir a condição ~ while (true)
+  }
+
+      // use break/continue on current loop
+      // use break/continue com etiqueta no laço externo
+  here:
+
+  for i := 0; i < 2; i++ {
+    for j := i + 1; j < 3; j++ {
+      if i == 0 {
+        continue here
+      }
+      fmt.Println(j)
+      if j == 2 {
+        break
+      }
+    }
+  }
+
+  there:
+
+  for i := 0; i < 2; i++ {
+    for j := i + 1; j < 3; j++ {
+      if j == 1 {
+        continue
+      }
+      fmt.Println(j)
+      if j == 2 {
+        break there
+      }
+    }
+  }
+
+=> Switch
+
+  // switch statement
+  switch operatingSystem {
+    case "darwin":
+      fmt.Println("Mac OS Hipster")
+      // casos são interrompidos automaticamente, sem falhas por padrão
+    case "linux":
+      fmt.Println("Linux Geek")
+    default:
+      fmt.Println("Other")
+  }
+
+
+  // como com for e if, você pode ter uma instrução de atribuição antes do valor de switch
+  switch os := runtime.GOOS; os {
+        case "darwin": ...
+  }
+
+  // você também pode fazer comparações em casos de troca
+  number:= 42
+  switch {
+    case number < 42:
+    fmt.Println("Smaller")
+            case number == 42:
+    fmt.Println("Equal")
+            case number > 42:
+    fmt.Println("Greater")
+      }
+
+  // casos podem ser apresentados em listas separadas por vírgulas
+  var char byte = '?'
+  switch char {
+    case ' ', '?', '&', '=', '#', '+', '%':
+      fmt.Println("Should escape")
+    }
+`,
+  },
+  'arrays slices ranges': {
+    title: 'Arrays, Slices, Ranges',
+    content: `
+
+=> Arrays
+
+  var a [10]int // declara um array int com comprimento 10. O comprimento do array faz parte do tipo!
+  a[3] = 42 // adicionando novo elemento
+  i := a[3] // lendo um elemento
+
+  var a = [2]int{1,2} // declarando e inicializando
+  a := [2]int{1,2} // forma abreviada
+  a := [...]int{1,2} // elipsis -> Compilador calcula o comprimento do array
+
+=> Slices
+
+  var a []int // declara uma fatia - semelhante a uma matriz, mas o comprimento não é especificado
+  var a = []int {1,2,3,4} // declarar e inicializar uma fatia (apoiada pela matriz fornecida implicitamente)
+  a := []int{1,2,3,4} // forma abreviada
+  chars := []string{0: "a",2: "c",1: "b"} // ["a", "b", "c"]
+
+  var b = a[lo:hi] // cria uma fatia (visualização da matriz) do índice lo até hi-1
+  var b = a[1: 4] // slice do index 1 até 3
+  var b = a[: 3] // falta de baixo índice implica 0
+  var b = a[3:] // falta de alto índice implica len(a)
+
+  a =  append(a,17,3) // adiciona items ao slice a
+  c := append(a,b...) // concatena slices a and b
+
+   // criando um slice com make
+  a = make([]byte,5,5) // primeiro comprimento de arg, segunda capacidade
+  a = make([]byte,5) // capacidade e opcional
+
+    // criando um slice com um array
+  x := [3]string{"bola","carrinho","peteca"}
+  s := x[:] // a slice referencing the storage of x
+`,
+  },
+  'operations on Arrays and Slices': {
+    title: 'Operations on Arrays and Slices',
+    content: `
+    'len(a)' retorna o comprimento de um array/a slice.
+
+    var a = [5]int{1,2,3,4,5}
+
+    for i, e := range a {
+      fmt.Println("%d",i)
+      fmt.Println("%d",e)
+    }
+
+    for _, e := range a {
+      fmt.Println("%d",e)
+    }
+
+    // ... e se você só precisa do índice
+    for i := range a {}
+
+    for range time.Tick(time.Second) {
+      // faça uma vez por segundo
+    }`,
+  },
+  Maps: {
+    title: 'Maps',
+    content: `
+    var m map[string]int
+    m = make(map[string]int)
+    m["key"] = 42
+    fmt.Println(m["key"])
+
+    delete(m,"key")
+
+    elem, ok := m["key"] // test if key "key" is present and retrieve it, if so
+      // map literal
+    var m = map[string]Vertex{
+      "Bell Labs": {40.68433,-74.39967},
+      "Google": {37.42202,-122.08408},
+    }
+      // iterate over map content
+    for key, value := range m {}
+
+      `,
+  },
+  structs: {
+    title: 'Structs',
+    content: `
+
+  Não há classes, apenas structs. As structs semelhantes as classes podem ter métodos.
+
+  // Uma estrutura é um tipo. É também uma coleção de campos
+
+  type Vertex struct {X, Y int}
+
+  var v = Vertex{1,2}
+  var v = Vertex{X: 1, Y: 2} //Cria uma estrutura definindo valores com chaves
+  var v = []Vertex{{1,2},{5,2},{5,5}} // Inicializar a slice of structs
+
+  // Acessando um valor
+  fmt.Printf(v.X)
+
+
+  // Você pode declarar métodos em structs. A structs que você deseja declarar o
+  // método on (o tipo de recebimento) fica entre a palavra-chave func e
+  // o nome do método. A estrutura é copiada em cada chamada de método (!)
+
+  func (v Vertex) Abs() float64 {
+      return math.Sqrt(v.X*v.X + v.Y*v.Y)
+    }
+
+  // invocando um método
+  v.Abs()
+
+  // Para métodos mutantes, você precisa usar um ponteiro (veja abaixo) para o Struct
+  // como o tipo. Com isso, o valor da struct não é copiado para a chamada do método.
+  func (v *Vertex) add(n float64) {
+      v.X += n
+      v.Y += n
+    }
+
+  Estruturas anônimas:
+  Mais barato e seguro do que usar 'map[string]interface{ }'.
+
+  point := struct {
+    X, Y int
+    }{1,2}
+`,
+  },
+  ponteiros: {
+    title: 'Pointers',
+    content: `
+
+  p := Vertex{ 1, 2 } // p is a Vertex
+  q := &p // q é um ponteiro para p Vertex
+  r := &Vertex{ 1, 2 }  // r é um ponteiro para Vertex
+
+  // O tipo de ponteiro para um Vertex é *Vertex
+
+  var s *Vertex = new(Vertex) // new cria um ponteiro para uma nova instância de struct
+`,
+  },
+  interfaces: {
+    title: 'Interfaces',
+    content: `
+  // declaração de interface
+  type Awesomizer interface {
+      Awesomize() string
+    }
+
+  // tipos  não declaram para implementar interfaces
+  type Foo struct {}
+
+  // em vez disso, os tipos satisfazem implicitamente uma interface se implementarem todos os métodos necessários
+  func (foo Foo) Awesomize() string {
+      return "Awesome!"
+  }
+    `,
+  },
   // "embedding": {
   //   "title": "Embedding",
   //     "content": [

@@ -3,10 +3,6 @@ const menuGo = `
 
 1. Basic Syntax
 2. Operators
-    Arithmetic
-    Comparison
-    Logical
-    Other
 3. Declarations
 4. Functions
     Functions as values and closures

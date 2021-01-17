@@ -516,254 +516,234 @@ const documentationGo = {
   }
     `,
   },
-  // "embedding": {
-  //   "title": "Embedding",
-  //     "content": [
-  //       "",
-  //       "There is no subclassing in Go. Instead, there is interface and struct embedding.",
-  //       "```go",
-  //       "// ReadWriter implementations must satisfy both Reader and Writer",
-  //       "type ReadWriter interface {",
-  //       "    Reader",
-  //       "    Writer",
-  //       "  }",
-  //       "  // Server exposes all the methods that Logger has",
-  //       "type Server struct {",
-  //       "    Host string",
-  //       "    Port int",
-  //       "    *log.Logger",
-  //       "  }",
-  //       "  // initialize the embedded type the usual way",
-  //       "server := &Server{",
-  //       "    \"localhost\",",
-  //       "    80, log.New(...)",
-  //       "  }",
-  //       "  // methods implemented on the embedded struct are passed through",
-  //       "server.Log(...) // calls server.Logger.Log(...)",
-  //       "",
-  //       "// the field name of the embedded type is its type name (in this case Logger)",
-  //       "var logger *log.Logger = server.Logger",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "errors": {
-  //   "title": "Errors",
-  //     "content": [
-  //       "",
-  //       "There is no exception handling. Functions that might produce an error just declare an additional return value of type `Error`. This is the `Error` interface:",
-  //       "```go",
-  //       "type error interface {",
-  //       "    Error() string",
-  //       "  }",
-  //       "```",
-  //       "",
-  //       "A function that might return an error:",
-  //       "```go",
-  //       "func doStuff() (int, error) {}",
-  //       "",
-  //       "func main() {",
-  //       "    result, err := doStuff()",
-  //       "    if err != nil {",
-  //       "      // handle error",
-  //       "    } else {",
-  //       "      // all is good, use result",
-  //       "    }",
-  //       "  }",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "concurrency": {
-  //   "title": "Concurrency",
-  //     "content": [
-  //       "Goroutines",
-  //       "",
-  //       "Goroutines are lightweight threads (managed by Go, not OS threads). `go f(a, b)` starts a new goroutine which runs `f` (given `f` is a function).",
-  //       "",
-  //       "```go",
-  //       "// just a function (which can be later started as a goroutine)",
-  //       "func doStuff(s string) {}",
-  //       "",
-  //       "func main() {",
-  //       "    // using a named function in a goroutine",
-  //       "    go doStuff(\"foobar\")",
-  //       "",
-  //       "    // using an anonymous inner function in a goroutine",
-  //       "    go func (x int) {",
-  //       "      // function body goes here",
-  //       "    }(42)",
-  //       "  }",
-  //       "```",
-  //       "",
-  //       "Channels",
-  //       "",
-  //       "```go",
-  //       "ch := make(chan int) // create a channel of type int",
-  //       "ch <- 42 // Send a value to the channel ch.",
-  //       "v := <-ch // Receive a value from ch",
-  //       "",
-  //       "// Non-buffered channels block. Read blocks when no value is available, write blocks until there is a read.",
-  //       "",
-  //       "// Create a buffered channel. Writing to a buffered channels does not block if less than <buffer size> unread values have been written.",
-  //       "ch := make(chan int,",
-  //       "  100)",
-  //       "",
-  //       "close(ch) // closes the channel (only sender should close)",
-  //       "",
-  //       "// read from channel and test if it has been closed",
-  //       "v, ok := <-ch",
-  //       "",
-  //       "// if ok is false, channel has been closed",
-  //       "",
-  //       "// Read from channel until it is closed",
-  //       "for i := range ch {",
-  //       "    fmt.Println(i)",
-  //       "  }",
-  //       "",
-  //       "// select blocks on multiple channel operations, if one unblocks, the corresponding case is executed",
-  //       "func doStuff(channelOut, channelIn chan int) {",
-  //       "    select {",
-  //       "    case channelOut <- 42:",
-  //       "        fmt.Println(\"We could write to channelOut!\")",
-  //       "    case x := <- channelIn:",
-  //       "        fmt.Println(\"We could read from channelIn\")",
-  //       "    case <-time.After(time.Second * 1):",
-  //       "        fmt.Println(\"timeout\")",
-  //       "    }",
-  //       "  }",
-  //       "```",
-  //       "",
-  //       "Channel Axioms",
-  //       "- A send to a nil channel blocks forever",
-  //       "",
-  //       "  ```go",
-  //       "  var c chan string",
-  //       "  c <- \"Hello, World!\"",
-  //       "  // fatal error: all goroutines are asleep - deadlock!",
-  //       "  ```",
-  //       "- A receive from a nil channel blocks forever",
-  //       "",
-  //       "  ```go",
-  //       "  var c chan string",
-  //       "  fmt.Println(<-c)",
-  //       "  // fatal error: all goroutines are asleep - deadlock!",
-  //       "  ```",
-  //       "- A send to a closed channel panics",
-  //       "",
-  //       "  ```go",
-  //       "  var c = make(chan string,",
-  //       "  1)",
-  //       "  c <- \"Hello, World!\"",
-  //       "  close(c)",
-  //       "  c <- \"Hello, Panic!\"",
-  //       "  // panic: send on closed channel",
-  //       "  ```",
-  //       "- A receive from a closed channel returns the zero value immediately",
-  //       "",
-  //       "  ```go",
-  //       "  var c = make(chan int,",
-  //       "  2)",
-  //       "  c <- 1",
-  //       "  c <- 2",
-  //       "  close(c)",
-  //       "  for i := 0; i < 3; i++ {",
-  //       "      fmt.Printf(\"%d \", <-c)",
-  //       "  }",
-  //       "  // 1 2 0",
-  //       "  ```",
-  //       ""
-  //     ]
-  // },
-  // "printing": {
-  //   "title": "Printing",
-  //     "content": [
-  //       "```go",
-  //       "fmt.Println(\"Hello, 你好, नमस्ते, Привет, ᎣᏏᏲ\") // basic print, plus newline",
-  //       "p := struct { X, Y int}{17,2}",
-  //       "fmt.Println( \"My point:\", p,\"x coord=\", p.X ) // print structs, ints, etc",
-  //       "s := fmt.Sprintln( \"My point:\", p,\"x coord=\", p.X ) // print to string variable",
-  //       "",
-  //       "fmt.Printf(\"%d hex:%x bin:%b fp:%f sci:%e\",",
-  //       "  17,",
-  //       "  17,",
-  //       "  17,",
-  //       "  17.0,",
-  //       "  17.0) // c-ish format",
-  //       "s2 := fmt.Sprintf( \"%d %f\",17,17.0 ) // formatted print to string variable",
-  //       "",
-  //       "hellomsg := `",
-  //       " \"Hello\" in Chinese is 你好 ('Ni Hao')",
-  //       " \"Hello\" in Hindi is नमस्ते ('Namaste')",
-  //       "` // multi-line string literal, using back-tick at beginning and end",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "reflection": {
-  //   "title": "Reflection",
-  //     "content": [
-  //       "Type Switch",
-  //       "A type switch is like a regular switch statement, but the cases in a type switch specify types (not values), and those values are compared against the type of the value held by the given interface value.",
-  //       "```go",
-  //       "func do(i interface{}) {",
-  //       "  switch v := i.(type) {",
-  //       "  case int:",
-  //       "    fmt.Printf(\"Twice %v is %v\n\", v, v*2)",
-  //       "  case string:",
-  //       "    fmt.Printf(\"%q is %v bytes long\n\", v, len(v))",
-  //       "  default:",
-  //       "    fmt.Printf(\"I don't know about type %T!\n\", v)",
-  //       "    }",
-  //       "  }",
-  //       "",
-  //       "func main() {",
-  //       "  do(21)",
-  //       "  do(\"hello\")",
-  //       "  do(true)",
-  //       "  }",
-  //       "```",
-  //       ""
-  //     ]
-  // },
-  // "snippets": {
-  //   "title": "Snippets",
-  //     "content": [
-  //       "",
-  //       "HTTP Server",
-  //       "```go",
-  //       "package main",
-  //       "",
-  //       "import (",
-  //       "    \"fmt\"",
-  //       "    \"net/http\"",
-  //       ")",
-  //       "",
-  //       "// define a type for the response",
-  //       "type Hello struct{}",
-  //       "  // let that type implement the ServeHTTP method (defined in interface http.Handler)",
-  //       "func (h Hello) ServeHTTP(w http.ResponseWriter, r *http.Request) {",
-  //       "    fmt.Fprint(w,",
-  //       "    \"Hello!\")",
-  //       "  }",
-  //       "",
-  //       "func main() {",
-  //       "    var h Hello",
-  //       "    http.ListenAndServe(\"localhost:4000\", h)",
-  //       "  }",
-  //       "  // Here's the method signature of http.ServeHTTP:",
-  //       "  // type Handler interface {",
-  //       "  //     ServeHTTP(w http.ResponseWriter, r *http.Request)",
-  //       "  // }",
-  //       "```"
-  //     ]
-  // },
-  // "reference": {
-  //   "title": "a8m",
-  //     "content": [
-  //       "https://github.com/a8m/golang-cheat-sheet"
-  //     ]
-  // }
+  embedding: {
+    title: 'Embedding',
+    content: `
+
+  Não há subclasses no Go. Em vez disso, há incorporação de interface e estrutura.
+
+    // As implementações de ReadWriter devem satisfazer tanto o Reader quanto o Writer
+
+  type ReadWriter interface {
+      Reader
+      Writer
+    }
+    // O servidor expõe todos os métodos que o Logger possui
+
+  type Server struct {
+      Host string
+      Port int
+      *log.Logger
+    }
+
+    // inicialize o tipo incorporado da maneira usual
+  server := &Server{
+      "localhost",
+      80, log.New(...)
+    }
+
+    // métodos implementados na estrutura incorporada são passados ​​por
+  server.Log(...) // calls server.Logger.Log(...)
+
+  // o nome do campo do tipo incorporado é o nome do seu tipo (neste caso, Logger)
+  var logger *log.Logger = server.Logger
+    `,
+  },
+  errors: {
+    title: 'Errors',
+    content: `
+    Não há tratamento de exceção. As funções que podem produzir um erro apenas declaram um valor de retorno adicional do tipo 'Erro'. Esta é a interface de 'Erro':
+
+    type error interface {
+        Error() string
+      }
+
+    Uma função que pode retornar um erro:
+
+    func doStuff() (int, error) {}
+
+    func main() {
+        result, err := doStuff()
+        if err != nil {
+          // handle error
+        } else {
+          // all is good, use result
+        }
+      }
+`,
+  },
+  concurrency: {
+    title: 'Concurrency',
+    content: `
+    => Goroutines
+
+  Goroutines são threads leves (gerenciados por Go, não threads de sistema operacional).
+  'go f (a, b)' inicia um novo goroutine que executa 'f' (dado que 'f' é uma função).
+
+  // apenas uma função (que pode ser iniciada posteriormente como uma goroutine)
+  func doStuff(s string) {}
+
+  func main() {
+      // usando uma função nomeada em um goroutine
+      go doStuff("foobar")
+
+      // usando uma função interna anônima em um goroutine
+      go func (x int) {
+        // o corpo da função vai aqui
+      }(42)
+    }
+
+=> Channels
+
+  ch := make(chan int) // cria um channel do tipo int
+  ch <- 42 // Envie um valor para o channel ch.
+  v := <-ch // Receba um valor de ch
+
+  // Bloco de canais sem buffer. Leia os blocos quando nenhum valor estiver disponível, escreva os blocos até que haja uma leitura.
+
+  // Crie um canal com buffer. A gravação em canais com buffer não bloqueia se menos de <tamanho do buffer> valores não lidos forem gravados
+  ch := make(chan int,
+    100)
+
+  close(ch) // fecha o canal (apenas o remetente deve fechar)
+
+  // leia do canal e teste se ele foi fechado
+  v, ok := <-ch
+
+  // se ok for falso, o canal foi fechado
+
+  // Leia do canal até que seja fechado
+  for i := range ch {
+      fmt.Println(i)
+    }
+
+  // selecionar blocos em operações de múltiplos canais, se um desbloquear, o caso correspondente é executado
+  func doStuff(channelOut, channelIn chan int) {
+      select {
+      case channelOut <- 42:
+          fmt.Println("We could write to channelOut!")
+      case x := <- channelIn:
+          fmt.Println("We could read from channelIn")
+      case <-time.After(time.Second * 1):
+          fmt.Println("timeout")
+      }
+    }
+
+=> Channel Axioms
+  - Um envio para um canal nulo bloqueia para sempre
+
+    var c chan string
+    c <- "Hello, World!"
+    // fatal error: all goroutines are asleep - deadlock!
+
+  - Uma recepção de um canal nulo bloqueia para sempre
+
+    var c chan string
+    fmt.Println(<-c)
+    // fatal error: all goroutines are asleep - deadlock!
+
+  - Um enviar para um fechado channel panics
+
+    var c = make(chan string,
+    1)
+    c <- "Hello, World!"
+    close(c)
+    c <- "Hello, Panic!"
+    // panic: enviar em canal fechado
+
+  - Uma recepção de um canal fechado retorna o valor zero imediatamente
+
+    var c = make(chan int,
+    2)
+    c <- 1
+    c <- 2
+    close(c)
+    for i := 0; i < 3; i++ {
+        fmt.Printf("%d ", <-c)
+    }
+    // 1 2 0`,
+  },
+  printing: {
+    title: 'Printing',
+    content: `
+    fmt.Println("Hello, 你好, नमस्ते, Привет, ᎣᏏᏲ") // impressão básica, mais nova linha
+      p := struct { X, Y int}{17,2}
+
+      fmt.Println( "My point:", p,"x coord=", p.X ) // print structs, ints, etc
+      s := fmt.Sprintln( "My point:", p,"x coord=", p.X ) // imprimir para variável de string
+
+      fmt.Printf("%d hex:%x bin:%b fp:%f sci:%e",17,17,17,17.0,17.0) // c-ish format
+
+      s2 := fmt.Sprintf( "%d %f",17,17.0 ) // impressão formatada para variável de string
+
+      hellomsg :=\`
+      "Hello" in Chinese is 你好 ('Ni Hao')
+       "Hello" in Hindi is नमस्ते ('Namaste')
+      \`
+
+       // literal de string multilinha, usando back-tick no início e no final
+    `,
+  },
+  reflection: {
+    title: 'Reflexão',
+    content: `
+=> Chave de tipo
+
+  Um switch de tipo é como uma instrução switch regular, mas os casos em um switch de tipo especificam tipos (não valores),
+  e esses valores são comparados com o tipo do valor mantido pelo valor de interface fornecido.
+
+    func do(i interface{}) {
+      switch v := i.(type) {
+      case int:
+        fmt.Printf("Twice %v is %v\\n", v, v*2)
+      case string:
+        fmt.Printf("%q is %v bytes long\\n", v, len(v))
+      default:
+        fmt.Printf("I don't know about type %T!\\n", v)
+        }
+      }
+
+    func main() {
+      do(21)
+      do("hello")
+      do(true)
+      }
+
+    `,
+  },
+  snippets: {
+    title: 'Snippets',
+    content: `
+=> HTTP Server
+
+    package main
+
+    import (
+        "fmt"
+        "net/http"
+    )
+
+    // define a type for the response
+    type Hello struct{}
+      // let that type implement the ServeHTTP method (defined in interface http.Handler)
+    func (h Hello) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprint(w,
+        "Hello!")
+      }
+
+    func main() {
+        var h Hello
+        http.ListenAndServe("localhost:4000", h)
+      }
+    "  // Here's the method signature of http.ServeHTTP:",
+      // type Handler interface {
+      //     ServeHTTP(w http.ResponseWriter, r *http.Request)
+      // }`,
+  },
+  reference: {
+    title: 'a8m',
+    content: 'https://github.com/a8m/golang-cheat-sheet',
+  },
 };
 
 export default documentationGo;

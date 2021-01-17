@@ -1,6 +1,6 @@
 {
   "name": "docdisk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Andre Felipe",
   "main": "dist/index.js",
   "description": "pacote para consulta de documentação",

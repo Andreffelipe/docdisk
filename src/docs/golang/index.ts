@@ -10,7 +10,7 @@ import {
 } from '../../style/style';
 
 const documentationGo = {
-  basic: {
+  basico: {
     title: 'Sintaxe Básica',
     content: `
     Hello World
@@ -204,7 +204,7 @@ const documentationGo = {
         }
       `,
   },
-  types: {
+  tipos: {
     title: 'Types',
     content: `
     bool
@@ -234,7 +234,7 @@ const documentationGo = {
       u := uint(f)
       `,
   },
-  packages: {
+  pacotes: {
     title: 'Packages',
     content: `
       Package declaration at top of every source file
@@ -245,7 +245,7 @@ const documentationGo = {
 
       `,
   },
-  'estrutura controle': {
+  ec: {
     title: 'Control structures',
     content: `
 => If
@@ -360,7 +360,7 @@ const documentationGo = {
     }
 `,
   },
-  'arrays slices ranges': {
+  asr: {
     title: 'Arrays, Slices, Ranges',
     content: `
 
@@ -396,32 +396,30 @@ const documentationGo = {
     // criando um slice com um array
   x := [3]string{"bola","carrinho","peteca"}
   s := x[:] // a slice referencing the storage of x
-`,
+
+=> Operations on Arrays and Slices
+
+  'len(a)' retorna o comprimento de um array/a slice.
+
+  var a = [5]int{1,2,3,4,5}
+
+  for i, e := range a {
+    fmt.Println("%d",i)
+    fmt.Println("%d",e)
+  }
+
+  for _, e := range a {
+    fmt.Println("%d",e)
+  }
+
+  // ... e se você só precisa do índice
+  for i := range a {}
+
+  for range time.Tick(time.Second) {
+    // faça uma vez por segundo
+  }`,
   },
-  'operations on Arrays and Slices': {
-    title: 'Operations on Arrays and Slices',
-    content: `
-    'len(a)' retorna o comprimento de um array/a slice.
-
-    var a = [5]int{1,2,3,4,5}
-
-    for i, e := range a {
-      fmt.Println("%d",i)
-      fmt.Println("%d",e)
-    }
-
-    for _, e := range a {
-      fmt.Println("%d",e)
-    }
-
-    // ... e se você só precisa do índice
-    for i := range a {}
-
-    for range time.Tick(time.Second) {
-      // faça uma vez por segundo
-    }`,
-  },
-  Maps: {
+  maps: {
     title: 'Maps',
     content: `
     var m map[string]int
@@ -549,7 +547,7 @@ const documentationGo = {
   var logger *log.Logger = server.Logger
     `,
   },
-  errors: {
+  erros: {
     title: 'Errors',
     content: `
     Não há tratamento de exceção. As funções que podem produzir um erro apenas declaram um valor de retorno adicional do tipo 'Erro'. Esta é a interface de 'Erro':
@@ -740,7 +738,7 @@ const documentationGo = {
       //     ServeHTTP(w http.ResponseWriter, r *http.Request)
       // }`,
   },
-  reference: {
+  referencia: {
     title: 'a8m',
     content: 'https://github.com/a8m/golang-cheat-sheet',
   },

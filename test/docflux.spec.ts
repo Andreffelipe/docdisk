@@ -9,15 +9,14 @@ interface Data {
 }
 
 test('Code should be 0', async () => {
-  const result = await cli('doc', ['-t', 'basic'], '.');
-  console.log(result)
+  const result = await cli('doc', ['-t', 'basico'], '.');
   expect(result.code).toBe(0);
 });
 
 function cli (topic: string, args: any[], cwd: string): Promise<Data> {
   return new Promise(resolve => {
     exec(
-      `npx ts-node ${join('src', 'docflux.ts')} ${topic} ${args.join(' ')}`,
+      `npx ts-node ${join('src', 'index.ts')} ${topic} ${args.join(' ')}`,
       { cwd },
       (error, stdout, stderr) => {
         resolve({

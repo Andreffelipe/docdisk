@@ -1,29 +1,29 @@
 const menuGo = `
     Go Topics
 
-1. Basic Syntax
-2. Operators
-3. Declarations
-4. Functions
+1. Basico
+2. Operador
+3. Declaracao
+4. Funcoes
     Functions as values and closures
     Variadic Functions
-5. Built-in Types
-6. Type Conversions
-7. Packages
-8. Control structures
+5. Tipos
+6. Conversao
+7. Pacotes
+8. EC (Estruturas de controle)
     If
     Loops
     Switch
-9. Arrays, Slices, Ranges
+9. ASR (Arrays, Slices, Ranges)
     Arrays
     Slices
     Operations on Arrays and Slices
 10. Maps
 11. Structs
-12. Pointers
+12. Ponteiros
 13. Interfaces
 14. Embedding
-15. Errors
+15. Erros
 16. Concurrency
     Goroutines
     Channels
@@ -33,6 +33,6 @@ const menuGo = `
     Type Switch
 19. Snippets
     Http-Server
-ope
+20. Referencia
 ==> `;
 export default menuGo;

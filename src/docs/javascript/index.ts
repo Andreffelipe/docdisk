@@ -51,8 +51,7 @@ Em JavaScript, você tem duas opções diferentes:
     - Semelhante a const, a  let variável pode ser reatribuída, mas não redeclarada.
 `,
   },
-
-  'tipos de dados': {
+  td: {
     title: `${orange('Tipos de dados')}`,
     content: `
 As variáveis ​​podem conter diferentes tipos de valores e tipos de dados.Você usa = para atribuí- los:
@@ -233,7 +232,7 @@ nome da função ( parâmetro1, parâmetro2, parâmetro3 ) {
 Como você pode ver, consiste no function palavra chave mais um nome. Os parâmetros da função estão entre colchetes e você tem colchetes ao redor do que a função executa. Você pode criar o seu próprio, mas para tornar sua vida mais fácil - também há uma série de funções padrão.
   `,
   },
-  'saida de dados': {
+  sd: {
     title: 'Saída de dados',
     content: `
 Uma aplicação comum para funções é a saída de dados. Para a saída, você tem as seguintes opções:
@@ -249,7 +248,7 @@ Uma aplicação comum para funções é a saída de dados. Para a saída, você 
 - prompt()
  Cria um diálogo para a entrada do usuário`,
   },
-  'funcoes globais': {
+  fg: {
     title: 'Funções Globais',
     content: `
 Funções globais são funções integradas a cada navegador capaz de executar JavaScript.
@@ -285,7 +284,7 @@ Funções globais são funções integradas a cada navegador capaz de executar J
  Analisa seu argumento e retorna um inteiro
  `,
   },
-  'loops e fluxo': {
+  lf: {
     title: 'Loops de JavaScript e Fluxo de controle',
     content: `
     Os loops fazem parte da maioria das linguagens de programação. Eles permitem que você execute blocos de código desejado de vezes com valores diferentes:
@@ -358,7 +357,7 @@ switch (condição) {
     break;
 }`,
   },
-  'caracteres de fuga': {
+  cf: {
     title: 'Caracteres de Fuga',
     content: `
 Strings são o que o JavaScript chama de texto que não executa uma função, mas pode aparecer na tela.
@@ -434,7 +433,7 @@ Existem muitas maneiras diferentes de trabalhar com strings:
 - valueOf()
  Retorna o valor primitivo (que não tem propriedades ou métodos) de um objeto string`,
   },
-  'expressao regular': {
+  er: {
     title: 'Sintaxe de Expressão Regular',
     content: `
 Expressões regulares são padrões de pesquisa usados ​​para combinar combinações de caracteres em strings. O padrão de pesquisa pode ser usado para pesquisa de texto e texto para substituir operações.

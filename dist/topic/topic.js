@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var inquirer_1 = __importDefault(require("inquirer"));
 var menu_1 = __importDefault(require("./go/menu"));
 var menu_2 = __importDefault(require("./javascript/menu"));
-var menu_3 = __importDefault(require("./git/menu"));
+var ccmenu_1 = __importDefault(require("./javascript/ccmenu"));
 var Msg = function (menu) { return __awaiter(void 0, void 0, void 0, function () {
     var answers;
     return __generator(this, function (_a) {
@@ -72,7 +72,7 @@ var getTopic = function (language) { return __awaiter(void 0, void 0, void 0, fu
                 switch (_a) {
                     case 'go': return [3 /*break*/, 1];
                     case 'javascript': return [3 /*break*/, 3];
-                    case 'git': return [3 /*break*/, 5];
+                    case 'ccjs': return [3 /*break*/, 5];
                 }
                 return [3 /*break*/, 7];
             case 1: return [4 /*yield*/, Msg(menu_1.default)];
@@ -83,7 +83,7 @@ var getTopic = function (language) { return __awaiter(void 0, void 0, void 0, fu
             case 4:
                 msg = _b.sent();
                 return [3 /*break*/, 8];
-            case 5: return [4 /*yield*/, Msg(menu_3.default)];
+            case 5: return [4 /*yield*/, Msg(ccmenu_1.default)];
             case 6:
                 msg = _b.sent();
                 return [3 /*break*/, 8];

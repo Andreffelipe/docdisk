@@ -1,5 +1,6 @@
 import go from './docs/golang/index';
 import javascript from './docs/javascript/index';
+import ccjs from './docs/javascript/ccindex';
 
 interface Data {
   [string: string]: {
@@ -24,6 +25,9 @@ const getDocuments = (language: string, topic: string): void => {
       break;
     case 'go':
       formatConsole(go, topic);
+      break;
+    case 'ccjs':
+      formatConsole(ccjs, topic);
       break;
     default:
       break;

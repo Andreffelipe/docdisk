@@ -2,6 +2,7 @@ import inquirer from 'inquirer';
 import menuGo from './go/menu';
 import menuJavascript from './javascript/menu';
 import menuGit from './git/menu';
+import ccMenu from './javascript/ccmenu';
 
 interface Data {
   language: string;
@@ -29,8 +30,8 @@ const getTopic = async (language: string): Promise<Data | undefined> => {
     case 'javascript':
       msg = await Msg(menuJavascript);
       break;
-    case 'git':
-      msg = await Msg(menuGit);
+    case 'ccjs':
+      msg = await Msg(ccMenu);
       break;
     default:
       break;

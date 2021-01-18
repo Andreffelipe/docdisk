@@ -11,5 +11,5 @@ const ccMenu = `
 10. Formatação
 11. Comentários
 12. Traduções
-`;
+==>`;
 export default ccMenu;

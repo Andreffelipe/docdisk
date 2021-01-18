@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable no-irregular-whitespace */
 var style_1 = require("../../style/style");
 var documentationJS = {
-    basic: {
+    basico: {
         title: "" + style_1.orange('JAVASCRIPT BÁSICO'),
         content: "\n=> " + style_1.blue('Incluindo JavaScript em uma página HTML') + "\n\n- Para incluir JavaScript dentro de uma p\u00E1gina, voc\u00EA precisa envolv\u00EA-lo em " + style_1.bgGray('<script>') + " tags:\n\n    <" + style_1.green('script') + " " + style_1.purple('type') + " = " + style_1.blueBright('"text/javascript"') + " >\n    </" + style_1.green('script') + ">\n\n- Chame um arquivo JavaScript externo\n\n    <" + style_1.green('script') + " src =" + style_1.blueBright('"myscript.js"') + ">   </" + style_1.green('script') + ">\n\n=> " + style_1.blue('Incluindo comentários') + "\n\nEm JavaScript, voc\u00EA tem duas op\u00E7\u00F5es diferentes:\n\n- Coment\u00E1rios de linha \u00FAnica\n    " + style_1.gray('// meu comentário') + "\n- Coment\u00E1rios multi-linha\n    /*\n      " + style_1.gray('meu comentário') + "\n    */\n\n=> " + style_1.blue('Declarando variáveis') + "\n\n   existem tem tr\u00EAs possibilidades diferentes para declarar uma vari\u00E1vel em JavaScript:\n\n   " + style_1.green('var') + "\n    - Ele pode ser reatribu\u00EDdo, mas apenas acessado dentro de uma fun\u00E7\u00E3o.Vari\u00E1veis \u200B\u200Bdefinidas com var movem para o topo quando o c\u00F3digo \u00E9 executado.\n   " + style_1.green('const') + "\n    - N\u00E3o podem ser reatribu\u00EDdos e n\u00E3o podem ser acessados \u200B\u200Bantes que apare\u00E7am no c\u00F3digo.\n   " + style_1.green('let') + "\n    - Semelhante a const, a  let vari\u00E1vel pode ser reatribu\u00EDda, mas n\u00E3o redeclarada.\n",
     },
@@ -63,7 +63,7 @@ var documentationJS = {
         title: 'Erros',
         content: "\nAo trabalhar com JavaScript, podem ocorrer diferentes erros. Existem v\u00E1rias maneiras de lidar com eles:\n\ntry - Permite definir um bloco de c\u00F3digo para testar erros\ncatch - Configure um bloco de c\u00F3digo para executar em caso de erro\nthrow - Crie mensagens de erro personalizadas em vez dos erros padr\u00E3o de JavaScript\nfinally - Permite executar o c\u00F3digo, depois de tentar e capturar, independentemente do resultado\nValores de nome de erro\nJavaScript tamb\u00E9m possui um objeto de erro embutido. Possui duas propriedades:\n\nname - Define ou retorna o nome do erro\nmessage - Define ou retorna uma mensagem de erro em uma string de\n\nA propriedade de erro pode retornar seis valores diferentes como seu nome:\n\nEvalError- Ocorreu um erro na eval()fun\u00E7\u00E3o\nRangeError - Um n\u00FAmero est\u00E1 \u201Cfora do intervalo\u201D\nReferenceError - Ocorreu uma refer\u00EAncia ilegal\nSyntaxError - Ocorreu um erro de sintaxe\nTypeError - Ocorreu um erro de tipo\nURIError- Ocorreu um encodeURI()erro\n    ",
     },
-    reference: {
+    referencia: {
         title: 'referencia',
         content: "\nhttps://websitesetup.org/javascript-cheat-sheet/\nhttps://developer.mozilla.org/pt-BR/\nhttps://javascript.info/",
     },

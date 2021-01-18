@@ -1,6 +1,6 @@
 const documentationJS = {
   introducao: {
-    title:"Introdução",
+    title: 'Introdução',
     content: `
     Princípios da Engenharia de Software, do livro de Robert C. Martin Código Limpo, adaptados para JavaScript. Isto não é um guia de estilos. É um guia para se produzir código legível, reutilizável e refatorável em JavaScript.
 
@@ -9,11 +9,11 @@ const documentationJS = {
     Nosso ofício de engenharia de software tem pouco mais de 50 anos e ainda estamos aprendendo muito. Quando a arquitetura de software for tão velha quanto a própria arquitetura, talvez então tenhamos regras mais rígidas para seguir. Por enquanto, deixe que estas orientações sirvam como critério para se avaliar a qualidade de código JavaScript que tanto você e o seu time produzirem.
      
     Mais uma coisa: aprender isto não irá lhe transformar imediatamente em um desenvolvedor de software melhor e trabalhar com eles por muitos anos não quer dizer que você não cometerá erros. Toda porção de código começa com um rascunho, como argila molhada sendo moldada em sua forma final. Finalmente, talhamos as imperfeições quando revisamos com nossos colegas. Não se bata pelos primeiros rascunhos que ainda precisam de melhorias. Ao invés, bata em seu código.
-     `
- },
- variaveis:{
-     title:"Variáveis",
-     content:`
+     `,
+  },
+  variaveis: {
+    title: 'Variáveis',
+    content: `
      Variáveis
      Use nomes de variáveis que tenham significado e sejam pronunciáveis
      Ruim:
@@ -114,7 +114,7 @@ const documentationJS = {
      }
      
      Use argumentos padrões ao invés de curto circuitar ou usar condicionais
-     Argumentos padrões são geralmente mais limpos do que curto circuitos. Esteja ciente que se você usá-los, sua função apenas irá fornecer valores padrões para argumentos undefined. Outros valores "falsos" como '', "", false, null, 0, e NaN, não serão substituidos por valores padrões.
+     Argumentos padrões são geralmente mais limpos do que curto circuitos. Esteja ciente que se você usá-los, sua função apenas irá fornecer valores padrões para argumentos undefined. Outros valores 'falsos' como '', '', false, null, 0, e NaN, não serão substituidos por valores padrões.
      
      Ruim:
      
@@ -131,7 +131,7 @@ const documentationJS = {
   },
   funcoes: {
     title: 'Funções',
-     content:`
+    content: `
     Funções
     Argumentos de funções (idealmente 2 ou menos)
     Limitar a quantidade de parâmetros de uma função é incrivelmente importante porque torna mais fácil testá-la. Ter mais que três leva a uma explosão combinatória onde você tem que testar muitos casos diferentes com cada argumento separadamente.
@@ -371,7 +371,7 @@ const documentationJS = {
         cancellable: true
       }, config);
 
-      // configuração agora é: {title: "Order", body: "Bar", buttonText: "Send", cancellable: true}
+      // configuração agora é: {title: 'Order', body: 'Bar', buttonText: 'Send', cancellable: true}
       // ...
     }
 
@@ -434,7 +434,7 @@ const documentationJS = {
     Evite Efeitos Colaterais (parte 2)
     Em JavaScript, tipos primitivos são passados por valor e objetos/vetores são passados por referência. No caso de objetos e vetores, se sua função faz uma mudança em um vetor de um carrinho de compras, por exemplo, adicionando um item para ser comprado, então qualquer outra função que use o vetor cart também será afetada por essa adição. Isso pode ser ótimo, mas também pode ser ruim. Vamos imaginar uma situação ruim:
 
-    O usuário clica no botão "Comprar", botão que invoca a função purchase que dispara uma série de requisições e manda o vetor cart para o servidor. Devido a uma conexão ruim de internet, a função purchase precisa fazer novamente a requisição. Agora, imagine que nesse meio tempo o usuário acidentalmente clique no botão Adicionar ao carrinho em um produto que ele não queria antes da requisição começar. Se isto acontecer e a requisição for enviada novamente, então a função purchase irá enviar acidentalmente o vetor com o novo produto adicionado porque existe uma referência para o vetor cart que a função addItemToCart modificou adicionando um produto indesejado.
+    O usuário clica no botão 'Comprar', botão que invoca a função purchase que dispara uma série de requisições e manda o vetor cart para o servidor. Devido a uma conexão ruim de internet, a função purchase precisa fazer novamente a requisição. Agora, imagine que nesse meio tempo o usuário acidentalmente clique no botão Adicionar ao carrinho em um produto que ele não queria antes da requisição começar. Se isto acontecer e a requisição for enviada novamente, então a função purchase irá enviar acidentalmente o vetor com o novo produto adicionado porque existe uma referência para o vetor cart que a função addItemToCart modificou adicionando um produto indesejado.
 
     Uma ótima solução seria que a função addCartToItem sempre clonasse o vetor cart, editasse-o, e então retornasse seu clone. Isso garante que nenhuma outra função que possua uma referência para o carrinho de compras seja afetada por qualquer mudança feita.
 
@@ -680,14 +680,14 @@ const documentationJS = {
 
     const req = newRequestModule;
     inventoryTracker('apples', req, 'www.inventory-awesome.io');
-`
- },
- oed:{
-     title:"Objetos e Estruturas de Dados",
-     content:`
+  `,
+  },
+  oed: {
+    title: 'Objetos e Estruturas de Dados',
+    content: `
      Objetos e Estruturas de Dados
      Use getters e setters
-     Usar getters e setters para acessar dados em objetos é bem melhor que simplesmente procurar por uma propriedade em um objeto. "Por quê?", você deve perguntar. Bem, aqui vai uma lista desorganizada de motivos:
+     Usar getters e setters para acessar dados em objetos é bem melhor que simplesmente procurar por uma propriedade em um objeto. 'Por quê?', você deve perguntar. Bem, aqui vai uma lista desorganizada de motivos:
      
      Quando você quer fazer mais além de pegar (get) a propriedade de um objeto, você não tem que procurar e mudar todos os acessores do seu código;
      Torna mais fácil fazer validação quando estiver dando um set;
@@ -713,12 +713,12 @@ const documentationJS = {
        // este é privado
        let balance = 0;
      
-       // um "getter", feito público através do objeto retornado abaixo
+       // um 'getter', feito público através do objeto retornado abaixo
        function getBalance() {
          return balance;
        }
      
-       // um "setter", feito público através do objeto retornado abaixo
+       // um 'setter', feito público através do objeto retornado abaixo
        function setBalance(amount) {
          // ... validate before updating the balance
          balance = amount;
@@ -765,11 +765,11 @@ const documentationJS = {
      console.log('Employee name: \${employee.getName()}'); // Employee name: John Doe
      delete employee.name;
      console.log('Employee name: \${employee.getName()}'); // Employee name: John Doe 
-    `
- },
- classes:{
-     title:"Classes",
-     content:`
+    `,
+  },
+  classes: {
+    title: 'Classes',
+    content: `
      Classes
      Prefira classes do ES2015/ES6 ao invés de funções simples do ES5
      É muito difícil conseguir que herança de classe, construtores, e definições de métodos sejam legíveis para classes de ES5 clássicas. Se você precisa de herança (e esteja ciente que você talvez não precise), então prefira classes ES2015/ES6. Entretanto, prefira funções pequenas ao invés de classes até que você precise de objetos maiores e mais complexos.
@@ -912,9 +912,9 @@ const documentationJS = {
      Prefira composição ao invés de herança
      Como dito famosamente em Padrão de projeto pela Gangue dos Quatro, você deve preferir composição sobre herança onde você puder. Existem muitas boas razões para usar herança e muitas boas razões para se usar composição. O ponto principal para essa máxima é que se sua mente for instintivamente para a herança, tente pensar se composição poderia modelar melhor o seu problema. Em alguns casos pode.
      
-     Você deve estar pensando então, "quando eu deveria usar herança?" Isso depende especificamente do seu problema, mas essa é uma lista decente de quando herança faz mais sentido que composição:
+     Você deve estar pensando então, 'quando eu deveria usar herança?' Isso depende especificamente do seu problema, mas essa é uma lista decente de quando herança faz mais sentido que composição:
      
-     Sua herança representa uma relação de "isto-é" e não uma relação de "isto-tem" (Human→Animal vs. User->UserDetails)
+     Sua herança representa uma relação de 'isto-é' e não uma relação de 'isto-tem' (Human→Animal vs. User->UserDetails)
      Você pode reutilizar código de classes de base (Humanos podem se mover como todos os animais).
      Você quer fazer mudanças globais para classes derivadas mudando apenas a classe base. (Mudar o custo calórico para todos os animais quando se movem).
      Ruim:
@@ -928,7 +928,7 @@ const documentationJS = {
        // ...
      }
      
-     // Ruim porque Employees (Empregados) "tem" dados de impostos. EmployeeTaxData não é um tipo de Employee
+     // Ruim porque Employees (Empregados) 'tem' dados de impostos. EmployeeTaxData não é um tipo de Employee
      class EmployeeTaxData extends Employee {
        constructor(ssn, salary) {
          super();
@@ -961,14 +961,14 @@ const documentationJS = {
        // ...
      }
       
-    `
- },
- solid:{
-     title:"SOLID",
-     content:`
+    `,
+  },
+  solid: {
+    title: 'SOLID',
+    content: `
      SOLID
      Princípio da Responsabilidade Única (SRP)
-     Como dito em Código Limpo, "Nunca deveria haver mais de um motivo para uma classe ter que mudar". É tentador empacotar uma classe em excesso com muitas funcionalidades, como quando você pode levar apenas uma mala em seu voo. O problema com isso é que sua classe não será conceitualmente coesa e dar-lhe-á diversos motivos para mudá-la. Minimizar o número de vezes que você precisa mudar uma classe é importante, porque, se muitas funcionalidades estão em uma classe e você mudar uma porção dela, pode ser difícil entender como isto afetará outras módulos que dependem dela no seu código.
+     Como dito em Código Limpo, 'Nunca deveria haver mais de um motivo para uma classe ter que mudar'. É tentador empacotar uma classe em excesso com muitas funcionalidades, como quando você pode levar apenas uma mala em seu voo. O problema com isso é que sua classe não será conceitualmente coesa e dar-lhe-á diversos motivos para mudá-la. Minimizar o número de vezes que você precisa mudar uma classe é importante, porque, se muitas funcionalidades estão em uma classe e você mudar uma porção dela, pode ser difícil entender como isto afetará outras módulos que dependem dela no seu código.
      
      Ruim:
      
@@ -1014,7 +1014,7 @@ const documentationJS = {
      }
      
      Princípio do Aberto/Fechado (OCP)
-     Como foi dito por Bertrand Meyer, "entidades de software (classes, módulos, funções, etc.) devem se manter abertas para extensões, mas fechadas para modificações." Mas o que isso significa? Esse princípio basicamente diz que você deve permitir que usuários adicionem novas funcionalidades sem mudar código já existente.
+     Como foi dito por Bertrand Meyer, 'entidades de software (classes, módulos, funções, etc.) devem se manter abertas para extensões, mas fechadas para modificações.' Mas o que isso significa? Esse princípio basicamente diz que você deve permitir que usuários adicionem novas funcionalidades sem mudar código já existente.
      
      Ruim:
      
@@ -1198,7 +1198,7 @@ const documentationJS = {
      Princípio da Segregação de Interface (ISP)
      JavaScript não possui interfaces então esse princípio não se aplica estritamente como os outros. Entretanto, é importante e relevante até mesmo com a falta de um sistema de tipos em JavaScript.
      
-     ISP diz que "Clientes não devem ser forcados a depender de interfaces que eles não usam." Interfaces são contratos implícitos em JavaScript devido a sua tipagem pato (duck typing).
+     ISP diz que 'Clientes não devem ser forcados a depender de interfaces que eles não usam.' Interfaces são contratos implícitos em JavaScript devido a sua tipagem pato (duck typing).
      
      Um bom exemplo para se observar que demonstra esse princípio em JavaScript é de classes que requerem objetos de configurações grandes. Não pedir para clientes definirem grandes quantidades de opções é benéfico, porque na maioria das vezes eles não precisarão de todas as configurações. Torná-las opcionais ajuda a prevenir uma “interferência gorda”.
      
@@ -1336,11 +1336,11 @@ const documentationJS = {
      const inventoryTracker = new InventoryTracker(['apples', 'bananas'], new InventoryRequesterV2());
      inventoryTracker.requestItems();
       
-    `
- },
- testes:{
-     title:"Testes",
-     content:`
+    `,
+  },
+  testes: {
+    title: 'Testes',
+    content: `
      Testes
      Testes são mais importantes que entregas. Se você não possui testes ou um quantidade inadequada, então toda vez que você entregar seu código você não terá certeza se você não quebrou alguma coisa. Decidir o que constitui uma quantidade adequada é responsabilidade do seu time, mas ter 100% de cobertura (todas as sentenças e branches) é a maneira que se alcança uma alta confiança e uma paz de espirito em desenvolvimento. Isso quer dizer que além de ter um ótimo framework de testes, você também precisa usar uma boa ferramenta de cobertura.
      
@@ -1392,11 +1392,11 @@ const documentationJS = {
        });
      });
       
-    `
- },
- concorrencia:{
-     title:"Concorrência",
-     content:`
+    `,
+  },
+  concorrencia: {
+    title: 'Concorrência',
+    content: `
      Concorrência
      Use Promessas, não callbacks
      Callbacks não são limpos, e eles causam uma quantidade excessiva de aninhamentos. A partir de ES2015/ES6, Promessas são um tipo nativo global. Use-as!
@@ -1469,11 +1469,11 @@ const documentationJS = {
        }
      }
       
-    `
- },
- te:{
-     title:"Tratamento de Erros",
-     content:`
+    `,
+  },
+  te: {
+    title: 'Tratamento de Erros',
+    content: `
      Tratamento de Erros
      throw error é uma coisa boa! Eles significam que o programa identificou com sucesso quando algo deu errado e está permitindo que você saiba parando a execução da função no processo atual, fechando o processo (em Node), e notificando você no console com a pilha de processos.
      
@@ -1528,12 +1528,12 @@ const documentationJS = {
          // OR do all three!
        });
       
-    `
- },
-formatacao:{
-    title:"Formatação",
-    content:`
-    Formatação
+    `,
+  },
+  formatacao: {
+    title: 'Formatação',
+    content: `
+
     Formatação é subjetiva. Como muitas regras aqui, não há nenhuma regra fixa e rápida que você precisa seguir. O ponto principal é NÃO DISCUTA sobre formatação. Existem muitas ferramentas para automatizar isso. Utilize uma! É um desperdicio de tempo e dinheiro para engenheiros discutirem sobre formatação.
 
     Para coisas que não possam utilizar formatação automática (identação, tabs vs. espaços, aspas simples vs. duplas, etc.) olhe aqui para alguma orientação.
@@ -1646,117 +1646,117 @@ formatacao:{
     const review = new PerformanceReview(employee);
     review.perfReview();
 
-    `
-},
-comentarios:{
-    title:"Comentários",
-    content:`
-    Comentários
-Apenas comente coisas que tenham complexidade de lógica de negócio.
-Comentários são uma desculpa, não um requisito. Um bom código documenta-se, a maior parte, por si só.
-
-Ruim:
-
-function hashIt(data) {
-  // A hash
-  let hash = 0;
-
-  // Tamanho da string
-  const length = data.length;
-
-  // Loop em cada caracter da informação
-  for (let i = 0; i < length; i++) {
-    // Pega o código do caracter.
-    const char = data.charCodeAt(i);
-    // Cria a hash
-    hash = ((hash << 5) - hash) + char;
-    // Converte para um integer 32-bit
-    hash &= hash;
-  }
-}
-Bom:
-
-function hashIt(data) {
-  let hash = 0;
-  const length = data.length;
-
-  for (let i = 0; i < length; i++) {
-    const char = data.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-
-    // Converte para um integer 32-bit
-    hash &= hash;
-  }
-}
-arrow_up voltar ao topo
-
-Não deixe código comentado na sua base de código
-Controle de versão existe por uma razão. Deixar códigos velhos no seu histórico.
-
-Ruim:
-
-doStuff();
-// doOtherStuff();
-// doSomeMoreStuff();
-// doSoMuchStuff();
-Bom:
-
-doStuff();
-arrow_up voltar ao topo
-
-Não comente registro de alterações
-Lembre-se, utilize controle de versão! Não tem necessidade em deixar códigos inutlizados, códigos comentados e especialmente registros de alterações. Utilize git log para pegar o histórico!
-
-Ruim:
-
-/**
- * 2016-12-20: Removidas monads, não entendia elas (RM)
- * 2016-10-01: Melhoria utilizando monads especiais (JP)
- * 2016-02-03: Removido checagem de tipos (LI)
- * 2015-03-14: Adicionada checagem de tipos (JR)
- */
-function combine(a, b) {
-  return a + b;
-}
-Bom:
-
-function combine(a, b) {
-  return a + b;
-}
-arrow_up voltar ao topo
-
-Evite marcadores de posição
-Eles geralmente criam ruídos. Deixe que as funções e nomes de variáveis em conjunto com a devida identação e formatação deem a estrutura visual para o seu código.
-
-Ruim:
-
-////////////////////////////////////////////////////////////////////////////////
-// Intanciação do Scope Model
-////////////////////////////////////////////////////////////////////////////////
-$scope.model = {
-  menu: 'foo',
-  nav: 'bar'
-};
-
-////////////////////////////////////////////////////////////////////////////////
-// Configuração da Action
-////////////////////////////////////////////////////////////////////////////////
-const actions = function() {
-  // ...
-};
-Bom:
-
-$scope.model = {
-  menu: 'foo',
-  nav: 'bar'
-};
-
-const actions = function() {
-  // ...
-};
     `,
   },
-  reference: {
+  comentarios: {
+    title: 'Comentários',
+    content: `
+
+    Apenas comente coisas que tenham complexidade de lógica de negócio.
+    Comentários são uma desculpa, não um requisito. Um bom código documenta-se, a maior parte, por si só.
+
+    Ruim:
+
+    function hashIt(data) {
+      // A hash
+      let hash = 0;
+    
+      // Tamanho da string
+      const length = data.length;
+    
+      // Loop em cada caracter da informação
+      for (let i = 0; i < length; i++) {
+        // Pega o código do caracter.
+        const char = data.charCodeAt(i);
+        // Cria a hash
+        hash = ((hash << 5) - hash) + char;
+        // Converte para um integer 32-bit
+        hash &= hash;
+      }
+    }
+    Bom:
+
+    function hashIt(data) {
+      let hash = 0;
+      const length = data.length;
+    
+      for (let i = 0; i < length; i++) {
+        const char = data.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+      
+        // Converte para um integer 32-bit
+        hash &= hash;
+      }
+    }
+    arrow_up voltar ao topo
+
+    Não deixe código comentado na sua base de código
+    Controle de versão existe por uma razão. Deixar códigos velhos no seu histórico.
+
+    Ruim:
+
+    doStuff();
+    // doOtherStuff();
+    // doSomeMoreStuff();
+    // doSoMuchStuff();
+    Bom:
+
+    doStuff();
+    arrow_up voltar ao topo
+
+    Não comente registro de alterações
+    Lembre-se, utilize controle de versão! Não tem necessidade em deixar códigos inutlizados, códigos comentados e especialmente registros de alterações. Utilize git log para pegar o histórico!
+
+    Ruim:
+
+    /**
+     * 2016-12-20: Removidas monads, não entendia elas (RM)
+     * 2016-10-01: Melhoria utilizando monads especiais (JP)
+     * 2016-02-03: Removido checagem de tipos (LI)
+     * 2015-03-14: Adicionada checagem de tipos (JR)
+     */
+    function combine(a, b) {
+      return a + b;
+    }
+    Bom:
+
+    function combine(a, b) {
+      return a + b;
+    }
+    arrow_up voltar ao topo
+
+    Evite marcadores de posição
+    Eles geralmente criam ruídos. Deixe que as funções e nomes de variáveis em conjunto com a devida identação e formatação deem a estrutura visual para o seu código.
+
+    Ruim:
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Intanciação do Scope Model
+    ////////////////////////////////////////////////////////////////////////////////
+    $scope.model = {
+      menu: 'foo',
+      nav: 'bar'
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////
+    // Configuração da Action
+    ////////////////////////////////////////////////////////////////////////////////
+    const actions = function() {
+      // ...
+    };
+    Bom:
+
+    $scope.model = {
+      menu: 'foo',
+      nav: 'bar'
+    };
+
+    const actions = function() {
+      // ...
+    };
+    `,
+  },
+  referencia: {
     title: 'referencia',
     content: `
     Repositório original:

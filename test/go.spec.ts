@@ -43,28 +43,29 @@ interface Doc {
 
 const cli = util.promisify(exec)
 
-describe('teste dos menus go', () => {
-  test("Documentação go", async done => {
-    for await (let index of menu) {
-      const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${index} go`);
-      const expected = await formatConsole(documentationGo, index);
+describe('teste do menu go', () => {
+  test("Documentação básico go", async done => {
+    const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[0]} go`);
+    const expected = await formatConsole(documentationGo, menu[0]);
 
-      expect(stdout).toContain(expected);
-      done()
-    }
+    expect(stdout).toContain(expected);
+    done()
+  
+  });
+  test("Documentação Operador go", async done => {
+    const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[1]} go`);
+    const expected = await formatConsole(documentationGo, menu[1]);
+
+    expect(stdout).toContain(expected);
+    done();
   })
-  // test("Documentação básico", async () => {
-  //   const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[0]} go`);
-  //   const expected = await formatConsole(documentationGo, menu[0]);
+  test("Documentação Declaracao go", async done => {
+    const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[2]} go`);
+    const expected = await formatConsole(documentationGo, menu[2]);
 
-  //   expect(stdout).toContain(expected);
-  // })
-  // test("Documentação Operador", async () => {
-  //   const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[1]} go`);
-  //   const expected = await formatConsole(documentationGo, menu[1]);
-
-  //   expect(stdout).toContain(expected);
-  // })
+    expect(stdout).toContain(expected);
+    done();
+  })
   // test("Documentação Operador", async () => {
   //   const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[2]} go`);
   //   const expected = await formatConsole(documentationGo, menu[2]);

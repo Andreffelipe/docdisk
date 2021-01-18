@@ -40,14 +40,27 @@ interface Doc {
 
 const cli = util.promisify(exec)
 
-describe('teste dos menus', () => {
+describe('teste do menu js', () => {
   test("Documentação básico javascript", async done => {
-    for await (let index of menu) {
-      const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${index} javascript`);
-      const expected = await formatConsole(documentationJs, index);
-      expect(stdout).toContain(expected);
-      done()
-    }
+    const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[0]} javascript`);
+    const expected = await formatConsole(documentationJs, menu[0]);
+
+    expect(stdout).toContain(expected);
+    done()
+  })
+  test("Documentação tipos de dados javascript", async done => {
+    const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[1]} javascript`);
+    const expected = await formatConsole(documentationJs, menu[1]);
+
+    expect(stdout).toContain(expected);
+    done()
+  })
+  test("Documentação objetos javascript", async done => {
+    const { stdout } = await cli(`npx ts-node src/index.ts doc -t ${menu[2]} javascript`);
+    const expected = await formatConsole(documentationJs, menu[2]);
+
+    expect(stdout).toContain(expected);
+    done()
   })
 })
 

@@ -12,12 +12,18 @@ Docflux e uma aplicação de linha de comando que reuni uma pequena
 documentação de algumas ferramentas e linguagem de programação
 que tenho estudado.
 
-A documentação será disponibilizada em pt_br e em en-us.
+A documentação será disponibilizada em pt_br.
 
 ### Linguagem
 
-* `golang`
+* `go`
 * `javascript`
+
+### Boas Práticas
+
+* `ccjs` 
+
+obs: `ccjs` clean code javascript
 
 ### Instalação
 
@@ -67,23 +73,22 @@ O comando `npx docdisk doc javascript` sem passar a fleg -t retorna o menu de t�
 ?
     Javascript Topics
 1. basic
-2. variaveis
-3. tipos de dados
-4. objetos
-5. array
-6. operadores
-7. funcoes
-8. saida de dados
-9. funcoes globais
-10. loops e fluxo
-11. caracteres de fuga
-12. string
-13. expressao regular
-14. number
-15. datas
-16. DOM
-17. erros
-18. reference
+2. TD (tipos de dados)
+3. objetos
+4. array
+5. operadores
+6. funcoes
+7. SD (saida de dados)
+8. FG (funcoes globais)
+9. LF (loops e fluxo)
+10. CF (caracteres de fuga)
+11. string
+12. ER (expressao regular)
+13. number
+14. datas
+15. DOM
+16. erros
+17. reference
 ==>  basic //inserção do tópico escolhido
 
 ```

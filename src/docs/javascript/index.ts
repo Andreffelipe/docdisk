@@ -10,7 +10,7 @@ import {
 } from '../../style/style';
 
 const documentationJS = {
-  basic: {
+  basico: {
     title: `${orange('JAVASCRIPT BÁSICO')}`,
     content: `
 => ${blue('Incluindo JavaScript em uma página HTML')}
@@ -818,7 +818,7 @@ TypeError - Ocorreu um erro de tipo
 URIError- Ocorreu um encodeURI()erro
     `,
   },
-  reference: {
+  referencia: {
     title: 'referencia',
     content: `
 https://websitesetup.org/javascript-cheat-sheet/

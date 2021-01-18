@@ -1,6 +1,6 @@
 const menuJavascript = `
     Javascript Topics
-1. basic
+1. basico
 2. TD (tipos de dados)
 3. objetos
 4. array
@@ -16,6 +16,6 @@ const menuJavascript = `
 14. datas
 15. DOM
 16. erros
-17. reference
+17. referencia
 ==> `;
 export default menuJavascript;
